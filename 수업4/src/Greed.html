@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>grid</title>
+    <style>
+        .grid-container{
+            width: 600px; 
+            /* 그리드는 부모요소에 지정해주며 이때 부모는 그리드 컨테이너라고 부른다. */
+            /* 자식요소는 그리드 아이텐이라고 부른다. */
+            display: grid;
+            /* 그리드에 행(줄)을 각각 70, 200, 70크기로 3대 지정 */
+            grid-template-rows: 70px 200px 70px;
+            /* 그리드에 열(칸)을 각각 종일한 비율(fr)로 3개 지정 */
+            grid-template-columns: repeat(3, 1fr);
+            /* 각각의 아이텐들 사이 간격을 10px로 지정 */
+            grid-gap: 10px;
+        }
+        .grid-item{
+            /* 글씨 흰색 */
+            color: #fff;
+            /* 배경 파랑 */
+            background-color: #0169ff;
+            /* 각각 아이텐 플렉스 박스 지정 */
+            display: flex;
+            /* 플렉스박스 수평 가운데 정렬 지정 */
+            justify-content: center;
+            /* 수직 중앙 정렬 지정 */
+            align-items: center;
+        }
+
+        .grid-item.header{
+            /* 경계선 번호 처음(1)부터 끝(-1)까지 영역 지정 */
+            grid-column: 1 / -1;
+            /* grid-column: 1 / -1;은 grid-column-stat: 1;과 grid-column-end: -1;의 줄임이다. */
+            grid-row-start: 1; grid-row-end: -1;
+        }
+        .grid-item,nav{
+            grid-column-start: 1; grid-column-end: 2;
+            grid-row-start: 2; grid-row-end: 3;
+        }
+        .grid-item.main{
+            grid-column-start: 2; grid-column-end: 3;
+            grid-row-start: 2; grid-row-end: 3;
+        }
+        .grid-item.aside{
+            grid-column-start: 3; grid-column-end: 4;
+            grid-row-start: 2; grid-row-end: 3;
+        }
+        .grid-item.footer{
+        grid-column: 1 / -1;
+        grid-row-start: 3; grid-row-end: 4;
+        }
+        /* 선 번호  */
+    </style>
+</head>
+<body>
+    <div class="grid-container">
+        <div class="grid-item header">Header</div>
+        <div class="grid-item nav">Nav</div>
+        <div class="grid-item main">Main Content</div>
+        <div class="grid-item aside">Aside</div>
+        <div class="grid-item footer">Footer</div>
+    </div>
+    
+</body>
+</html>

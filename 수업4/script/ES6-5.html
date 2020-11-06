@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>클래스</title>
+    <script>
+    // 객체 생성자 함수(object, construntor, function)
+    //prototype
+
+    function Info(a,b){
+        this.subject=a;
+        this.credit=b;
+    //     this.printOut= function(){
+    //         return this.subject + ',' + this.credit + '학점' ;
+    //     };
+     };
+
+    Info.prototype.printOut=function(){
+        return this.subject + ',' + this.credit + '학점' ;
+        
+    }
+    var sub1= new Info('html',1);
+    console.log(sub1.subject);//html
+    console.log(sub1.credit);//1
+    console.log(sub1.printOut());//html,1
+
+    var sub2= new Info('css',2);
+    console.log(sub2.subject);
+    console.log(sub2.credit);
+    console.log(sub2.printOut());
+
+    //for in문 , 객체일때
+    var infos={
+        subject:'js',
+        credit:3,
+        days: 20,
+        tuition:1000
+    };
+
+    for(info in infos){
+        console.log(info +':'+infos[info]);
+    }
+
+
+    //배열에서의fot in문은 배열의 인덱스 번호를 반환, 객체에서의 for in문은 객체의 속성들을 반환해줌. 헷갈리지 말것
+
+    //클래스 class - 기존에 사용했던 객체 생성과 구문을 체계적인 객체지향 구문으로 보완
+
+
+    
+    </script>
+</head>
+<body>
+</body>
+</html>
